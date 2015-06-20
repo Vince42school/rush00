@@ -1,6 +1,5 @@
 <?php
-	session_start();
-	require_once("db.php");
+	require_once("entete.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
