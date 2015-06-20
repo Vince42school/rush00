@@ -2,7 +2,7 @@
 
 try
 {
-	$db = new PDO('mysql:host=localhost;dbname=rush00;charset=utf8', 'root', 'spoing');
+	$db = new PDO('mysql:host=localhost;dbname=rush00;charset=utf8', 'root', 'felindra');
 }
 catch(Exception $e)
 {

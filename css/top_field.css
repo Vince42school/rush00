@@ -1,0 +1,22 @@
+#top_container
+{
+	background-color: red;
+
+}
+
+.icon
+{
+	width: 5%;
+	/*float: right;*/
+}
+
+.test
+{
+	width: 300px;
+}
+
+.badge_float
+{
+	float: right;
+	margin-right: 2%;
+}
