@@ -1,23 +1,30 @@
 <?php
 	require_once("header.php");
 
-	$req = $db->query("SELECT * FROM user");
+	$req = mysqli_query($db, "SELECT * FROM user");
+	$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
 
-	while ($data = $req->fetch())
+	foreach ($row as $value)
 	{
-		echo "<p>User : <b>".$data['login']."</b></p>";
-		echo "<p>Pass : <b>".$data['password']."</b></p>";
-		echo "<p>Admin : <b>".$data['admin']."</b></p>";
+		echo "<p>User : <b>".$value['login']."</b></p>";
+		echo "<p>Pass : <b>".$value['password']."</b></p>";
+		echo "<p>Admin : <b>".$value['admin']."</b></p>";
+	}
+	
+	// $name = htmlspecialchars($_POST['login']);
+	$name = "Pyrate";
+	$i = 1;
+	$query = "SELECT * FROM user WHERE login = '".$name."' AND admin = '".$i."'";
+	$req = mysqli_query($db, $query);
+	$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
+var_dump($row);
+	foreach ($row as $value)
+	{
+		echo "<p>User : <b>".$value['login']."</b></p>";
+		echo "<p>Pass : <b>".$value['password']."</b></p>";
+		echo "<p>Admin : <b>".$value['admin']."</b></p>";
 	}
 
-	$req = $db->prepare("SELECT * FROM user WHERE login = ? AND admin = ?");
-	$req->execute(array("Pyrate", 0));
-
-	while ($data = $req->fetch())
-	{
-		echo "<p>User : <b>".$data['login']."</b></p>";
-		echo "<p>Pass : <b>".$data['password']."</b></p>";
-		echo "<p>Admin : <b>".$data['admin']."</b></p>";
-	}
+	mysqli_close($db);
 	require_once("footer.php");
 ?>
