@@ -42,12 +42,12 @@
 	endforeach ;
 ?>
 		<li class="list-group-item">
-			<?php echo $_SESSION['total_price']; ?>
+			Total: <?php echo $_SESSION['total_price']; ?> ø
 		</li>
 	</ul>
 	
 	<a href="paiement.php">
-		<button type="button" class="btn_buy_right btn btn-sucess btn-lg button_float_right">
+		<button type="button" class="btn_buy_right btn btn-success btn-lg button_float_right">
   		<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
   		</span> Passer en caisse
   		</button>
