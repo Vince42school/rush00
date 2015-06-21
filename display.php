@@ -8,7 +8,7 @@
 			$req = mysqli_query($db, "SELECT * FROM article");
 			$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
 			foreach ($row as $value)  :
-	?>
+  ?>
   		<div class="col-sm-6 col-md-4">
     	<div class="thumbnail">
      	 <img src="img/<?php echo $value['image']; ?>" alt="">

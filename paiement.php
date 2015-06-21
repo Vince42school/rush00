@@ -4,57 +4,47 @@
 ?>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="thumbnail thumb_middle">
-      
-				      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-				  <!-- Indicators -->
-				  <ol class="carousel-indicators">
-				    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-				    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-				  </ol>
-				<div class="carousel-inner" role="listbox">
-				  <!-- Wrapper for slides -->
-				  <?php
-						$req = mysqli_query($db, "SELECT a.name, a.image FROM basket AS b INNER JOIN article AS a WHERE b.id_article = a.id");
-						$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
-						foreach ($row as $value)  :
-					?>
-				  
-				    <div class="item">
-				      <img src="img/<?php echo $value['image']; ?>">
-				      <div class="carousel-caption">
-				        ...
-				      </div>
-				    </div>
-				   
-				  <?php
-					endforeach ;
-				?>
-				 </div>
-				  <!-- Controls -->
-				  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				    <span class="sr-only">Previous</span>
-				  </a>
-				  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				    <span class="sr-only">Next</span>
-				  </a>
-				</div>
+	<div class="col-md-6 col-md-offset-3">
+		<div><h2>Liste des article</h2></div>
 
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
+	<table class="table table-striped table-bordered">
+		
+			<th>
+				<td><strong>Image</strong></td>
+				<td><strong>Nom</strong></td>
+				<td><strong>Prix Unitaire</strong></td>
+				<td><strong>Quantité</strong></td>
+				<td><strong>Prix</strong></td>
+			</th>
 
-        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Payer" data-content="Je crois qu'on va pas vous laisser faire ça, c'est vraiment trop dégueulasse.">
-			Cliquer ici pour payer
-		</button>
+			<?php
 
-      </div>
-    </div>
-  </div>
+			$_SESSION['total_price'] = 0;
+			foreach ($_SESSION['basket'] as $key => $value) :
+			$query = "SELECT name, price, image, descr FROM article WHERE id='".$key."'";
+			$req = mysqli_query($db, $query);
+			$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
+			?>
+			<tr>
+				<td></td>
+				<td><img class="mini_img" src="img/<?php echo $row['0']['image'] ?>"></td>
+				<td><?php echo $row['0']['name'] ?></td>
+				<td><?php echo $row['0']['price'] ?> ø</td>
+				<td><?php echo $value; ?></td>
+				<td><?php $price = $row['0']['price'] * $value; echo $price;$_SESSION['total_price'] += $price; ?> ø</td>
+			</tr>
+			<?php endforeach; ?>
+			<tfoot>
+				<td colspan="4"></td>
+				<td><strong>Total</strong></td>
+				<td><?php echo $_SESSION['total_price'] ?> ø</td>
+			</tfoot>
+		</table>
+		<div>
+			<a href="del_basket.php" role="button" class="btn btn-danger">Vider le panier</a>
+			<a href="index.php" role="button" class="btn btn-info">Continuer les achats</a>
+			<a href="basket_valid.php" role="button" class="btn btn-success">Valider</a>
+		</div>
 </div>
 
 

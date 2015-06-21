@@ -2,7 +2,6 @@
 	require_once("top_filed.php");
 ?>
 <div class="container">
-	<div class="row">
 		<div class="col-sm-6 col-md-4 col-md-offset-4">
 			<img  class="deglon" src="img/logo.png" alt="logo">
 			<div class="account-wall">
@@ -15,6 +14,5 @@
 				</form>
 			</div>
 		</div>
-	</div>
 </div>
 <?php require_once("footer.php"); ?>

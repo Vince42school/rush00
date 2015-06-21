@@ -54,7 +54,7 @@ if (isset($_SESSION['msg']))
 		<div>
 			<label for="Descr" >Description</label>
 			<div>
-				<input type="textarea" name="Descr" id="Descr" placeholder="Description">
+				<input type="textarea" name="Descr" id="Descr" placeholder="Description" value="<?php echo $row['0']['descr']; ?>">
 			</div>
 		</div>
 
@@ -78,7 +78,8 @@ if (isset($_SESSION['msg']))
 		<div>
 			<div class="input-group">
 				<span class="input-group-addon">
-				<input type="checkbox" name="mod_img" value="1">
+				<label for="img">Modifier l'image</label>
+				<input type="checkbox" name="mod_img" value="1" id="img">
 				</span>
 				<label for="Image">Image actuel : <?php echo $image ?></label>
 				<div >
