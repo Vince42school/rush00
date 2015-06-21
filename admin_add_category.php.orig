@@ -22,8 +22,12 @@ if (isset($_SESSION['msg']))
 
 		<div >
 			<div>
+<<<<<<< HEAD
 				<button type="submit" class="btn btn-primary">Valider</button>
 				<a href="admin_article.php" role="button" class="btn btn-primary">Retour</a>
+=======
+				<button type="submit">Valider</button>
+>>>>>>> master
 			</div>
 		</div>
 		</form>

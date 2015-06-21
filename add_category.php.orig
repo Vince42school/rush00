@@ -16,5 +16,9 @@
 		$_SESSION['msg']['type'] = "danger";
 	}
 	mysqli_close($db);
+<<<<<<< HEAD
 	header("location:admin_article.php");
+=======
+	header("location:admin_add_article.php");
+>>>>>>> master
 ?>
