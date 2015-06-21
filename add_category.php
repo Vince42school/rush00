@@ -5,7 +5,7 @@
 	$name = htmlspecialchars($_POST['Cat']);
 	var_dump($name);
 	$query = "INSERT INTO category(name) VALUES('".$name."')";
-	if(mysqli_query($sadb, $query))
+	if(mysqli_query($db, $query))
 	{
 		$_SESSION['msg']['msg'] = "La catégorie a bien été enregistrée";
 		$_SESSION['msg']['type'] = "success";
@@ -16,5 +16,5 @@
 		$_SESSION['msg']['type'] = "danger";
 	}
 	mysqli_close($db);
-	header("location:admin_add_article.php");
+	header("location:admin_article.php");
 ?>
