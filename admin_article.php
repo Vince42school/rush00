@@ -89,6 +89,7 @@ if (isset($_SESSION['msg']))
 				<td><strong>Quantité</strong></td>
 				<td><strong>image</strong></td>
 				<td><strong>Categorie</strong></td>
+				<td><strong>Description</strong></td>
 				<td></td>
 				<td></td>
 			</th>
@@ -106,7 +107,19 @@ if (isset($_SESSION['msg']))
 				<td><?php echo $value['price'] ?></td>
 				<td><?php echo $value['quantity'] ?></td>
 				<td><?php echo $value['image'] ?></td>
-				<td><?php echo $value['category'] ?></td>
+				<td>
+				<?php
+					$cats = explode(',', $value['category']);
+		      	  	foreach ($cats as $v)
+					{
+		      	  		$query = "SELECT name FROM category WHERE id='".$v."'";
+		      	  		$tmp = mysqli_query($db, $query);
+		      	  		$tmp2 = mysqli_fetch_all($tmp, MYSQLI_ASSOC);
+		      	  		echo "<span class=\"label label-success\">".$tmp2['0']['name']."</span>";
+      		}
+      		?>
+      		</td>
+				<td><?php echo $value['descr'] ?></td>
 				<td><a href="admin_modif_article.php?id=<?php echo $value['id'] ?>" class="btn btn-warning" role="button">Modifier</a></td>
 				<td><a href="del_article.php?id=<?php echo $value['id'] ?>" class="btn btn-danger" role="button">supprimer</a></td>
 			</tr>

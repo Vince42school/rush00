@@ -24,5 +24,5 @@
 		$msg = "La catégorie a bien été supprimée";
 	$_SESSION['msg']['msg'] = $msg;
 	$_SESSION['msg']['type'] = "success";
-	header("location:admin_add_article.php");
+	header("location:admin_article.php");
 ?>
