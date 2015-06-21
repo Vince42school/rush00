@@ -1,5 +1,5 @@
 <?php
-require_once("header.php");
+require_once("top_filed.php");
 	if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
 	{
 		header("location:index.php");
@@ -125,9 +125,6 @@ if (isset($_SESSION['msg']))
 			</tr>
 			<?php endforeach; ?>
 		</table>
-		<div>
-			<a href="index.php" class="btn btn-info" role="button">Retour</a>
-		</div>
 	</form>
 
 <?php
