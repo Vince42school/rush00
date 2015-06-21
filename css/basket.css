@@ -25,3 +25,13 @@
 	float: right;
 	margin-right: 10%;
 }
+
+.button_float_left
+{
+	margin-left: 10%;
+}
+
+.button_float_right
+{
+	margin-right: 10%;
+}

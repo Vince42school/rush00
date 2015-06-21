@@ -48,20 +48,30 @@
 		</div>
 		</form>
        
-		<!-- Trucs a droite -->
-		<ul class="nav navbar-nav navbar-right">
-      		<li>
-      			<a href="#"><button type="submit" class="btn btn-default btn-sm">Se connecter</button></a>
-      		</li>
-      	<!--  Menu deroulant a afficher en fonction de si on est log, et a remplir en fonction des achats -->	
+	<!-- Trucs a droite -->
+	<ul class="nav navbar-nav navbar-right">
+      	<li>
+      		<a href="#"><button type="submit" class="btn btn-default btn-sm">Se connecter</button></a>
+      	</li>
+      	
+		<!--  Menu deroulant a afficher en fonction de si on est log, et a remplir en fonction des achats -->	
       	<li class="dropdown">
       		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Panier<span class="caret"></span></a>
+      		 
       		 <!-- Liste du panier -->
       		 <ul class="dropdown-menu test">
-      		 	<li><a href="#">Petit Singapourien<span class="badge badge_float">162,80$</span><span class="badge badge_float">14</span></a></li>
-            	<li><a href="#">Marseillais<span class="badge badge_float">14,00$</span><span class="badge badge_float">1</span></a></li>
-            	<li><a href="#">Jeune Athenien<span class="badge badge_float">14,00$</span><span class="badge badge_float">1</span></a></li>           		 
-           		<li role="separator" class="divider"></li>
+      		 <?php
+				$req = mysqli_query($db, "SELECT a.name, a.price FROM basket AS b INNER JOIN article AS a WHERE b.id_article = a.id");
+				$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
+				foreach ($row as $value)  :
+			?>
+		
+      		 	<li><a href="#"><?php echo $value['name']; ?><span class="badge badge_float">$<?php echo $value['price']; ?></span><span class="badge badge_float">14</span></a></li>
+            	
+           		<?php endforeach; ?>
+           		<!-- Boutons panier/caisse -->
+           		<li role="separator" class="divider">
+           		</li>
            		<li>
            		 	<button type="button" class="btn_buy_right btn btn-default btn-md">
   						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Passer en caisse
@@ -71,7 +81,6 @@
   						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Voir mon panier
   					</a>
 					</button>
-				
 				</li>
 				
 				

@@ -34,5 +34,10 @@
 ?>
  		 
 	</ul>
-
+	
+	<button type="button" class="btn_buy_right btn btn-sucess btn-lg button_float_right">
+  		<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+  		</span> Passer en caisse
+	</button>
+<a href="display.php" class="btn btn-default button_float_left" role="button">Retour à la boutique</a>
 <?php require_once("footer.php"); ?>

@@ -28,7 +28,8 @@
 			?>
         <p>
         	<a href="#" class="btn btn-primary move_you" role="button">En savoir plus</a>
-        	<a href="#" class="btn btn-default move_you" role="button">Je le veux!</a></p>
+        	<a href="add_basket.php?id=<?php echo $value['id'] ?>" class="btn btn-default move_you" role="button"/>Je le veux!</a>
+        </p>
       </div>
     </div>
   </div>
