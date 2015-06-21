@@ -21,10 +21,15 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Je cherche <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Aryen</a></li>
-            <li><a href="#">Maltais</a></li>
-            <li><a href="#">Australien</a></li>
-            <li><a href="#">Kenyan</a></li>
+          <?php
+			$req = mysqli_query($db, "SELECT * FROM category");
+			$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
+			foreach ($row as $value)  :
+		?>
+            <li><a href="#"><?php echo $value['name']; ?></a></li>
+            <?php
+	endforeach ;
+?>
             <li role="separator" class="divider"></li>
             <li><a href="#">Fille</a></li>
             <li role="separator" class="divider"></li>
@@ -55,7 +60,21 @@
       		 <ul class="dropdown-menu test">
       		 	<li><a href="#">Petit Singapourien<span class="badge badge_float">162,80$</span><span class="badge badge_float">14</span></a></li>
             	<li><a href="#">Marseillais<span class="badge badge_float">14,00$</span><span class="badge badge_float">1</span></a></li>
-            	<li><a href="#">Jeune Athenien<span class="badge badge_float">14,00$</span><span class="badge badge_float">1</span></a></li>
+            	<li><a href="#">Jeune Athenien<span class="badge badge_float">14,00$</span><span class="badge badge_float">1</span></a></li>           		 
+           		<li role="separator" class="divider"></li>
+           		<li>
+           		 	<button type="button" class="btn_buy_right btn btn-default btn-md">
+  						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Passer en caisse
+					</button>
+					<button type="button" class="btn_buy_left btn btn-default btn-md">
+					<a href="basket.php">
+  						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Voir mon panier
+  					</a>
+					</button>
+				
+				</li>
+				
+				
             </ul>
       	</li>
       	<!-- Icone Login/Logout, a changer en fonction de l'etat de session -->
