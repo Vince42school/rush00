@@ -26,7 +26,7 @@ $req = mysqli_query($db, "SELECT * FROM category");
 $row = mysqli_fetch_all($req, MYSQLI_ASSOC);
 foreach ($row as $value)  :
 ?>
-			<li><a href="display_category.php?choice=<?php $_GET['$value['id']']; ?>"> </a></li>
+			<li><a href="display_category.php?choice=<?php $_GET[$value['id']]; ?>"> </a></li>
 <!-- <?php echo $value['name']; ?> -->
 <?php
 	endforeach ;
