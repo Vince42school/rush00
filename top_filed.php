@@ -21,15 +21,15 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Je cherche <span class="caret"></span></a>
           <ul class="dropdown-menu">
-          <?php
-			$req = mysqli_query($db, "SELECT * FROM category");
-			$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
-			foreach ($row as $value)  :
-		?>
-            <li><a href="#"><?php echo $value['name']; ?></a></li>
+        	<?php
+				$req = mysqli_query($db, "SELECT * FROM category");
+				$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
+				foreach ($row as $value)  :
+			?>
+            	<li><a href="#"><?php echo $value['name']; ?></a></li>
             <?php
-	endforeach ;
-?>
+				endforeach ;
+			?>
             <li role="separator" class="divider"></li>
             <li><a href="#">Fille</a></li>
             <li role="separator" class="divider"></li>
@@ -74,8 +74,10 @@
            		</li>
            		<li>
            		 	<button type="button" class="btn_buy_right btn btn-default btn-md">
+           		 	<a href="paiement.php">
   						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Passer en caisse
 					</button>
+					</a>
 					<button type="button" class="btn_buy_left btn btn-default btn-md">
 					<a href="basket.php">
   						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Voir mon panier

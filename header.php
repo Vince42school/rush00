@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="css/display.css">
 		<link rel="stylesheet" href="css/top_field.css">
 		<link rel="stylesheet" href="css/basket.css">
+		<link rel="stylesheet" href="css/paiement.css">
 
 	</head>
 	<body>
