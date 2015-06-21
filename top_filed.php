@@ -74,7 +74,7 @@ if (isset($_SESSION['loggued_on_user']) && $_SESSION['loggued_on_user'] != "") :
 if (isset($_SESSION['admin']) && ($_SESSION['admin'] == "1")) :
 ?>
 			<li>
-				<a href="admin_article.php"><button type="submit" class="btn btn-default btn-sm">Dashboard</button></a>
+				<a href="dashboard.php"><button type="submit" class="btn btn-default btn-sm">Dashboard</button></a>
 			</li>
 <?PHP endif; ?>
 
