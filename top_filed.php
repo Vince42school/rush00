@@ -46,7 +46,7 @@
 		<!-- Trucs a droite -->
 		<ul class="nav navbar-nav navbar-right">
       		<li>
-      			<a href="#"><button type="submit" class="btn btn-default btn-sm">Se connecter</button></a>
+      			<a href="log.php"><button type="submit" class="btn btn-default btn-sm">Se connecter</button></a>
       		</li>
       	<!--  Menu deroulant a afficher en fonction de si on est log, et a remplir en fonction des achats -->	
       	<li class="dropdown">
