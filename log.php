@@ -2,9 +2,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6 col-md-4 col-md-offset-4">
-			<h1 class="text-center login-title">Sign in to continue to Child'R'us</h1>
+			<img  class="deglon" src="img/logo.png" alt="logo">
 			<div class="account-wall">
-				<img class="profile-img" alt="logo">
+				<h1 class="text-center login-title">Sign in to continue to Child'R'us</h1>
 				<form class="form-signin" action="login.php" method="POST">
 				<input name="login" type="text" class="form-control" placeholder="Login" required autofocus>
 				<input name="passwd" type="password" class="form-control" placeholder="Password" required>

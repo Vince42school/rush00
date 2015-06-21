@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<meta charset="UTF-8">
 		<title>Childs R' Us</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
