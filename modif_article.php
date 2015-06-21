@@ -16,9 +16,8 @@
 	$price = htmlentities($_POST['Price']);
 	$qt = htmlentities($_POST['Qt']);
 	$img = isset($_POST['Image']) ?htmlentities($_POST['Image']) : NULL;
-	var_dump($img);
 	$img = $_POST['mod_img'] ? $img : $_POST['old_img'];
-	var_dump($img);
+	$descr = htmlentities($_POST['Descr']);
 	$cat = "";
 	foreach ($_POST as $key => $value)
 	{
@@ -33,7 +32,8 @@
 				price = '".$price."',
 				category = '".$cat."',
 				quantity = '".$qt."',
-				image = '".$img."'
+				image = '".$img."',
+				descr = '".$descr."'
 				WHERE
 				id = '".$_POST['id']."'
 				";
@@ -47,8 +47,6 @@
 	}
 
 	mysqli_close($db);
-	var_dump($_POST);
-	die();
 	$_SESSION['msg']['msg'] = "L'article a bien été modifié";
 	$_SESSION['msg']['type'] = "success";
 	header("location:admin_article.php");

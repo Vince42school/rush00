@@ -4,35 +4,46 @@
 <h2 class="title">Mon panier</h2>
 	<ul class="list-group">
 	<?php
-				$req = mysqli_query($db, "SELECT a.name, a.price, a.image FROM basket AS b INNER JOIN article AS a WHERE b.id_article = a.id");
-				$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
-				foreach ($row as $value)  :
+		$_SESSION['total_price'] = 0;
+		foreach ($_SESSION['basket'] as $key => $value) :
+			$query = "SELECT name, price, image, descr FROM article WHERE id='".$key."'";
+			$req = mysqli_query($db, $query);
+			$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
 			?>
 		<li class="list-group-item">
-			<span class="badge"><?php echo $value['price']; ?></span>
+			<span class="badge ">
+			<?php
+				$price = $row['0']['price'] * $value;
+				echo $price;
+				$_SESSION['total_price'] += $price;
+			?>
+			ø</span>
+			<span class="badge "><?php echo $row['0']['price']; ?> ø</span>
 				<div class="center">
-      				<div class="input-group">
-        			<span class="input-group-btn">
-        		    	<button type="button" class="btn btn-warning btn-number"  data-type="minus" data-field="quant[2]">
-        		    		<span class="glyphicon glyphicon-minus"></span>
-        		    	</button>
-        			</span>
-        		  	<input type="text" name="quant[2]" class="form-control input-number" value="10" min="0" max="99">
-        		  	<span class="input-group-btn">
-        		    	<button type="button" class="btn btn-warning btn-number" data-type="plus" data-field="quant[2]">
-        		    	      <span class="glyphicon glyphicon-plus"></span>
-        		    	</button>
-        			</span>
+					<div class="input-group">
+					<span class="input-group-btn">
+				    	<button type="button" class="btn btn-warning btn-number"  data-type="minus" data-field="quant[<?php echo $key ?>]">
+				    		<span class="glyphicon glyphicon-minus"></span>
+				    	</button>
+					</span>
+				  	<input type="text" name="quant[<?php echo $key ?>]" class="form-control input-number" value="<?php echo $value ?>" min="0" max="99">
+				  	<span class="input-group-btn">
+				    	<button type="button" class="btn btn-warning btn-number" data-type="plus" data-field="quant[<?php echo $key ?>]">
+				    	      <span class="glyphicon glyphicon-plus"></span>
+				    	</button>
+					</span>
       				</div>
       			</div>
-    			<img class="mini_img" src="img/<?php echo $value['image']; ?>">
-    			 <h3><?php echo $value['name']; ?></h3>
-    			 <?php echo $value['descr']; ?>
+    			<img class="mini_img" src="img/<?php echo $row['0']['image']; ?>">
+    			 <h3><?php echo $row['0']['name']; ?></h3>
+    			 <?php echo $row['0']['descr']; ?>
  		 </li>
 <?php
 	endforeach ;
 ?>
- 		 
+		<li class="list-group-item">
+			<?php echo $_SESSION['total_price']; ?>
+		</li>
 	</ul>
 	
 	<a href="paiement.php">

@@ -38,7 +38,7 @@ if (isset($_SESSION['msg']))
 		</div>
 
 		<div>
-			<label for="Qt" >Description</label>
+			<label for="Descr" >Description</label>
 			<div>
 				<input type="textarea" name="Descr" id="Descr" placeholder="Description">
 			</div>

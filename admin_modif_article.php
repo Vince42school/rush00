@@ -50,6 +50,13 @@ if (isset($_SESSION['msg']))
 				<input type="text" name="Qt" id="Qt" placeholder="Quantité" value="<?php echo $row['0']['quantity']; ?>">
 			</div>
 		</div>
+		
+		<div>
+			<label for="Descr" >Description</label>
+			<div>
+				<input type="textarea" name="Descr" id="Descr" placeholder="Description">
+			</div>
+		</div>
 
 		<div class="btn-group" data-toggle="buttons">
 		<?php

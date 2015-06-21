@@ -83,18 +83,31 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'] == "1")) :
       		 
       		 <!-- Liste du panier -->
       		 <ul class="dropdown-menu test">
-      		 <?php
-				$req = mysqli_query($db, "SELECT a.name, a.price FROM basket AS b INNER JOIN article AS a WHERE b.id_article = a.id");
+       		 <?php
+       		 	$_SESSION['total_price'] = 0;
+				foreach ($_SESSION['basket'] as $key => $value)  :
+				$query = "SELECT name, price FROM article WHERE id='".$key."'";
+				$req = mysqli_query($db, $query);
 				$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
-				foreach ($row as $value)  :
 			?>
 		
-      		 	<li><a href="#"><?php echo $value['name']; ?><span class="badge badge_float">$<?php echo $value['price']; ?></span><span class="badge badge_float">14</span></a></li>
-            	
+      		 	<li><a href="#"><?php echo $row['0']['name']; ?>
+	      		 	<span class="badge badge_float">
+	      		 	<?php
+						$price = $row['0']['price'] * $value;
+						echo $price;
+						$_SESSION['total_price'] += $price;
+					?> ø
+					</span></a>
+					<span class="badge badge_float">
+						<?php echo $value; ?>
+					</span>
+				</li>
            		<?php endforeach; ?>
            		<!-- Boutons panier/caisse -->
-           		<li role="separator" class="divider">
-           		</li>
+           		<li role="separator" class="divider"></li>
+           		<li>Total : <?php echo $_SESSION['total_price']; ?></li>
+           		<li role="separator" class="divider"></li>
            		<li>
            		 	<button type="button" class="btn_buy_right btn btn-default btn-md">
            		 	<a href="paiement.php">
