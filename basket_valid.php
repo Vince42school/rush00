@@ -3,14 +3,14 @@
 
 	$user = mysqli_query($db, "SELECT id FROM user WHERE login='".$_SESSION['loggued_on_user']."'");
 	$user = mysqli_fetch_all($user, MYSQLI_ASSOC);
-
+	$now = time();
 	foreach ($_SESSION['basket'] as $key => $value)
 	{
 
 		$query = "INSERT INTO
-				basket(id_user, id_article, quantity, date)
+				basket(id_user, id_article, quantity, date, id_commande)
 				VALUES
-				('".$user[0]['id']."', '".$key."', '".$value."', NOW())
+				('".$user[0]['id']."', '".$key."', '".$value."', NOW(), '".$now."')
 				";
 
 		if (mysqli_query($db, $query))
