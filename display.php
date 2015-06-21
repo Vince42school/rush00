@@ -13,9 +13,8 @@
     	<div class="thumbnail">
      	 <img src="img/<?php echo $value['image']; ?>" alt="">
      	 <div class="caption">
-      	  <h3><?php echo $value['name']; ?></h3>
+      	 
       	  <?php
-      	  	echo $value['descr']."\n";
       	  	$cats = explode(',', $value['category']);
       	  	foreach ($cats as $v)
       	  	{
@@ -24,10 +23,14 @@
       	  		$tmp2 = mysqli_fetch_all($tmp, MYSQLI_ASSOC);
       	  		echo "<span class=\"label label-warning\">".$tmp2['0']['name']."</span>";
       		}
-
+          echo "<h3>".$value['name']."</h3>";
+          echo $value['descr']."\n";
 			?>
         <p>
-        	<a href="#" class="btn btn-primary move_you" role="button">En savoir plus</a>
+        	<a href="know_more.php?name=<?php echo $value['name'] ?>&img=<?php echo $value['image'] ?>&id=<?php echo $value['id'] ?>" class="btn btn-primary move_you" role="button">En savoir plus</a>
+
+
+
         	<a href="add_basket.php?id=<?php echo $value['id'] ?>" class="btn btn-default move_you" role="button"/>Je le veux!</a>
         </p>
       </div>

@@ -38,3 +38,9 @@ body
 {
 	margin-top: 3%;
 }
+
+.buttn_float_knowmore
+{
+	float: right;
+	margin-bottom: 0%;
+}

@@ -21,33 +21,23 @@ require_once("header.php");
 		<li class="dropdown">
 		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Je cherche <span class="caret"></span></a>
 		  <ul class="dropdown-menu">
-<?php
-$req = mysqli_query($db, "SELECT * FROM category");
-$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
-foreach ($row as $value)  :
-?>
-			<li><a href="display_category.php?choice=<?php $_GET[$value['id']]; ?>"> </a></li>
-<!-- <?php echo $value['name']; ?> -->
-<?php
-	endforeach ;
-?>
+			<?php
+			$req = mysqli_query($db, "SELECT * FROM category");
+			$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
+			foreach ($row as $value)  :
+			?>
+				<li>
+					<a href="display_category.php?choice=<?php echo $value['id'] ?>"><?php echo $value['name']; ?>
+					</a>
+				</li>
+			<?php
+				endforeach ;
+			?>
 			<li role="separator" class="divider"></li>
-			<li><a href="#">Fille</a></li>
-			<li role="separator" class="divider"></li>
-			<li><a href="#">Garçon</a></li>
+			<li><a href="display.php">Toutes catégories confondues</a></li>
 		  </ul>
 		</li>
 		</ul>
-
-		<!-- Barre texte -->
-		<form class="navbar-form navbar-left" role="search">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Je cherche...">
-				<span class="input-group-btn">
-					<button class="btn btn-default" type="button">Go!</button>
-				</span>
-		</div>
-		</form>
 
 		<!-- Trucs a droite -->
 		<ul class="nav navbar-nav navbar-right">
@@ -92,14 +82,14 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'] == "1")) :
 				$row = mysqli_fetch_all($req, MYSQLI_ASSOC);
 			?>
 		
-      		 	<li><a href="#"><?php echo $row['0']['name']; ?>
-	      		 	<span class="badge badge_float">
-	      		 	<?php
-						$price = $row['0']['price'] * $value;
-						echo $price;
-						$_SESSION['total_price'] += $price;
-					?> ø
-					</span></a>
+      		 	<li><a href="basket.php"><?php echo $row['0']['name']; ?></a>
+	      		 	<span class="badge badge2">
+	      		 		<?php
+							$price = $row['0']['price'] * $value;
+							echo $price;
+							$_SESSION['total_price'] += $price;
+						?> ø
+					</span>
 					<span class="badge badge_float">
 						<?php echo $value; ?>
 					</span>
@@ -107,7 +97,7 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'] == "1")) :
            		<?php endforeach; ?>
            		<!-- Boutons panier/caisse -->
            		<li role="separator" class="divider"></li>
-           		<li>Total : <?php echo $_SESSION['total_price']; ?></li>
+           			<li id="total">Total : <?php echo $_SESSION['total_price']; ?> ø</li>
            		<li role="separator" class="divider"></li>
            		<li>
            		 	<button type="button" class="btn_buy_right btn btn-default btn-md">
