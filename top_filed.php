@@ -138,3 +138,10 @@ if (isset($_SESSION['admin']) && ($_SESSION['admin'] == "1")) :
 		</div>
 	</div>
 </nav>
+<?php
+	if (isset($_SESSION['msg']))
+	{
+	echo "<div class=\"alert alert-".$_SESSION['msg']['type']."\">".$_SESSION['msg']['msg']."</div>\n";
+	unset($_SESSION['msg']);
+	}
+?>
