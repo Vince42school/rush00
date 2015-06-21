@@ -12,11 +12,23 @@
 
 .test
 {
-	width: 300px;
+	width: 350px;
 }
 
 .badge_float
 {
 	float: right;
 	margin-right: 2%;
+}
+
+.btn_buy_right
+{
+	float: right;
+	margin-right: 2%;
+}
+
+.btn_buy_left
+{
+	float: left;
+	margin-left: 2%;
 }
