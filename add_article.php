@@ -1,8 +1,10 @@
 <?php
 	require_once("entete.php");
-	// if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
-	// 	header("location:index.php");
-
+	if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
+	{
+		header("location:index.php");
+		return ;
+	}
 	$name = htmlspecialchars($_POST['Name']);
 	$price = htmlentities($_POST['Price']);
 	$qt = htmlentities($_POST['Qt']);

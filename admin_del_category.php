@@ -1,8 +1,10 @@
 <?php
 require_once("header.php");
-// if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
-// 	header("location:index.php");
-?>
+	if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
+	{
+		header("location:index.php");
+		return ;
+	}?>
 	<form method="POST" action="del_category.php">
 		<div>
 			<h3>Seletionner une ou plusieurs catégories à supprimer</h3>

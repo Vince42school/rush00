@@ -1,7 +1,10 @@
 <?php
 	require_once("entete.php");
-	// if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
-	// 	header("location:index.php");
+	if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
+	{
+		header("location:index.php");
+		return ;
+	}
 	$name = htmlspecialchars($_POST['Cat']);
 	var_dump($name);
 	$query = "INSERT INTO category(name) VALUES('".$name."')";

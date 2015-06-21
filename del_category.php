@@ -1,10 +1,10 @@
 <?php
 	require_once("entete.php");
-	// if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
-	// {
-	// 	header("location:index.php");
-	// 	return ;
-	// }
+	if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
+	{
+		header("location:index.php");
+		return ;
+	}
 
 	$i = 0;
 	foreach ($_POST as $value)

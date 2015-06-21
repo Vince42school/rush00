@@ -1,8 +1,10 @@
 <?php
 require_once("header.php");
-// if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
-// 	header("location:index.php");
-
+	if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
+	{
+		header("location:index.php");
+		return ;
+	}
 if (isset($_SESSION['msg']))
 {
 	echo "<div class=\"alert alert-".$_SESSION['msg']['type']."\">".$_SESSION['msg']['msg']."</div>\n";

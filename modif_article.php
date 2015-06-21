@@ -1,10 +1,10 @@
 <?php
 	require_once("entete.php");
-	// if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
-	// {
-	// 	header("location:index.php");
-	// 	return ;
-	// }
+	if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
+	{
+		header("location:index.php");
+		return ;
+	}
 	if(!(isset($_POST['id']) && is_numeric($_POST['id']) && !empty($_POST['id'])))
 	{
 		$_SESSION['msg']['msg'] = "L'article n'a pas été modifié, 404 ...";

@@ -1,10 +1,10 @@
 <?php
 	require_once("entete.php");
-	// if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
-	// {
-	// 	header("location:index.php");
-	// 	return ;
-	// }
+	if (!isset($_SESSION['admin']) || $_SESSION['admin']== 0)
+	{
+		header("location:index.php");
+		return ;
+	}
 	if ((isset($_POST['id']) && !empty($_POST['id'])) && (isset($_POST['name']) && !empty($_POST['name'])))
 	{
 		$name = htmlspecialchars($_POST['name']);
