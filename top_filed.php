@@ -11,7 +11,7 @@ require_once("header.php");
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-	  <a class="navbar-brand" href="#"><img class="minilog" src="img/minilogo.png"></a>
+	  <a class="navbar-brand" href="display.php"><img class="minilog" src="img/minilogo.png"></a>
 	</div>
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -26,7 +26,8 @@ $req = mysqli_query($db, "SELECT * FROM category");
 $row = mysqli_fetch_all($req, MYSQLI_ASSOC);
 foreach ($row as $value)  :
 ?>
-			<li><a href="#"><?php echo $value['name']; ?></a></li>
+			<li><a href="display_category.php?choice=<?php $_GET['$value['id']']; ?>"> </a></li>
+<!-- <?php echo $value['name']; ?> -->
 <?php
 	endforeach ;
 ?>
